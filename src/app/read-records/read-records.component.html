@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="showPopup" class="alert alert-success" role="alert">
+        Data updated successfully!
+    </div>
+    <router-outlet></router-outlet>
+    <ng-content></ng-content>
+    <button type="button" class="btn btn-success" [disabled]="isAddClicked" id="addNew" (click)="onAddClicked()">Add New
+        Employee</button>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+</div>

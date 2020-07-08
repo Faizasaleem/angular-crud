@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <form #postForm="ngForm" (ngSubmit)="addUpdateEmployee()">
+                <div class="form-group">
+                    <label for="empName">Employee Name:</label>
+                    <input type="text" class="form-control" id="empName" required ngModel name="empName"
+                        #empName="ngModel" />
+                    <span class="help-block" *ngIf="!empName.valid && empName.touched">Please enter a valid name!</span>
+                </div>
+                <div class="radio" *ngFor="let gender of genders">
+                    <label><input type="radio" name="empGender" [ngModel]="defaultGender" [value]="gender" required>{{ gender }} </label>
+                </div>
+                <div class="form-group">
+                    <label for="age">Employee Age:</label>
+                    <input type="number" class="form-control" id="age" required ngModel name="empAge"
+                    maxlength="2" #empAge="ngModel" />
+                    <span class="help-block" *ngIf="!empAge.valid && empAge.touched">Please enter a valid age!</span>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Employee Salary:</label>
+                    <input type="number" class="form-control" id="salary" required ngModel name="empSalary"
+                        #empSalary="ngModel" />
+                    <span class="help-block" *ngIf="!empSalary.valid && empSalary.touched">Please enter a valid
+                        salary!</span>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">{{btnValue}}</button>
+            </form>
+        </div>
+    </div>
+</div>
